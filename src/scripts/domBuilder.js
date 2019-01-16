@@ -69,15 +69,18 @@ const newInterest = {
 
         let interestCountryLabel = document.createElement("label")
         interestCountryLabel.textContent = "Pick a City  "
+
         let interestCountry = document.createElement("select")
+        interestCountry.setAttribute("id", "interestCo" )
 
         data.getAllPlaces()
         .then(parsedPlaces => {
             parsedPlaces.forEach(place => {
                 let interestCountryName = document.createElement("option")
                 interestCountryName.textContent += `${place.name}`
-                interestCountryName.setAttribute("id", `${place.id}`)
+                interestCountryName.setAttribute("value", `${place.id}`)
                 interestCountryName.setAttribute("class", "interest_Co")
+
                 interestCountry.appendChild(interestCountryName)
                 interestCountryLabel.appendChild(interestCountry)
             });
@@ -105,7 +108,7 @@ const newInterest = {
         let inputIDescription = document.querySelector("#interest_D").value
         let inputICost = document.querySelector("#interest_C").value
         let inputIReview = document.querySelector("#interest_R").value
-        let inputICity = document.getElementsByClassName(".interest_Co").id
+        let inputICity = document.querySelector("#interestCo").value
 
         let newInterestObject = {
             placeId: inputICity,
