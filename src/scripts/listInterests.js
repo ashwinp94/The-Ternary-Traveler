@@ -10,10 +10,10 @@ const interestList = {
                 let interestHTML = interests.interestBuilder(interest)
                 interestDocFragment.appendChild(interestHTML)
             });
-            let interestOutput = document.querySelector("#output")
-            // while (interestOutput.firstChild){
-            // interestOutput.removeChild(interestOutput.firstChild)
-            // }
+            let interestOutput = document.querySelector(".output")
+            while (interestOutput.firstChild){
+            interestOutput.removeChild(interestOutput.firstChild)
+            }
             interestOutput.appendChild(interestDocFragment)
         })
     }
