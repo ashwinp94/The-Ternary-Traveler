@@ -18,15 +18,17 @@ const interests = {
         let interestReview = document.createElement("section")
         interestReview.textContent = interestObject.review;
 
+        // let interestPlace = document.createElement("select")
+        // let interestCountry = document.createElement("option")
+
+
         interestArea.appendChild(interestName)
         interestArea.appendChild(interestDescription)
         interestArea.appendChild(interestCost)
         interestArea.appendChild(interestReview)
 
-
-
-        // let interestPlace = document.createElement("select")
-        // let interestCountry = document.createElement("option")
-
+        return interestArea;
     }
 }
+
+export default interests
