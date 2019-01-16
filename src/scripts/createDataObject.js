@@ -1,4 +1,5 @@
 import data from "./data";
+import interestList from "./listInterests"
 
 //Then all points of interests should be displayed with their name,
 //description, cost, review if it's not blank and the place it is located
@@ -23,11 +24,22 @@ const interests = {
         let interestCountryName = document.createElement("section")
         interestCountryName.textContent = "City:  " + interestObject.place.name
 
+        let deleteButton = document.createElement("button")
+        deleteButton.textContent = "Delete"
+        deleteButton.addEventListener("click", () => {
+            let interestId = event.target.parentNode.id.split("--")[1]
+            data.deleteInterest(interestId)
+            .then(response =>{
+                interestList.showInterests();
+            })
+        })
+
         interestArea.appendChild(interestName)
         interestArea.appendChild(interestDescription)
         interestArea.appendChild(interestCost)
         interestArea.appendChild(interestReview)
         interestArea.appendChild(interestCountryName)
+        interestArea.appendChild(deleteButton)
 
         return interestArea;
     }
