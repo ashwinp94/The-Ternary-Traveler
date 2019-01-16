@@ -43,6 +43,84 @@ const newInterest = {
         newInterestDField.appendChild(newInterestDInput)
         newInterestDField.appendChild(newInterestDLabel)
 
+        let newInterestCField = document.createElement("fieldset")
 
+        let newInterestCLabel = document.createElement("label")
+        newInterestCLabel.textContent = "Cost"
+        newInterestCLabel.setAttribute("for", "interest_C")
+        let newInterestCinput = document.createElement("input")
+        newInterestCinput.setAttribute("id", "interest_C")
+        newInterestCinput.setAttribute("name", "interest_C")
+
+        newInterestCField.appendChild(newInterestCLabel)
+        newInterestCField.appendChild(newInterestCinput)
+
+        let newInterestRField = document.createElement("fieldset")
+
+        let newInterestRLabel = document.createElement("label")
+        newInterestRLabel.textContent = "Leave a Review"
+        newInterestRLabel.setAttribute("for", "interest_R")
+        let newInterestRInput = document.createElement("input")
+        newInterestRInput.setAttribute("id", "interest_R")
+        newInterestRInput.setAttribute("name", "interest_R")
+
+        newInterestRField.appendChild(newInterestRLabel)
+        newInterestRField.appendChild(newInterestRInput)
+
+        let interestCountryLabel = document.createElement("label")
+        interestCountryLabel.textContent = "Pick a City  "
+        let interestCountry = document.createElement("select")
+
+        data.getAllPlaces()
+        .then(parsedPlaces => {
+            parsedPlaces.forEach(place => {
+                let interestCountryName = document.createElement("option")
+                interestCountryName.textContent += `${place.name}`
+                interestCountryName.setAttribute("id", `${place.id}`)
+                interestCountryName.setAttribute("class", "interest_Co")
+                interestCountry.appendChild(interestCountryName)
+                interestCountryLabel.appendChild(interestCountry)
+            });
+        })
+
+        let addButton = document.createElement("button")
+        addButton.textContent = "Add New Interest"
+        addButton.setAttribute("class", "interest_Save")
+        addButton.addEventListener("click", newInterest.handleAddNewInterest)
+
+        let interestFormFragment = document.createDocumentFragment()
+        interestFormFragment.appendChild(interestHeader)
+        interestFormFragment.appendChild(newInterestNameField)
+        interestFormFragment.appendChild(newInterestDField)
+        interestFormFragment.appendChild(newInterestCField)
+        interestFormFragment.appendChild(interestCountryLabel)
+        interestFormFragment.appendChild(newInterestRField)
+        interestFormFragment.appendChild(addButton)
+
+        let formArticle = document.querySelector(".input")
+        formArticle.appendChild(interestFormFragment)
+    },
+    handleAddNewInterest(){
+        let inputIName = document.querySelector("#interest_name").value
+        let inputIDescription = document.querySelector("#interest_D").value
+        let inputICost = document.querySelector("#interest_C").value
+        let inputIReview = document.querySelector("#interest_R").value
+        let inputICity = document.getElementsByClassName(".interest_Co").id
+
+        let newInterestObject = {
+            placeId: inputICity,
+            name: inputIName,
+            description: inputIDescription,
+            cost: inputICost,
+            review: inputIReview,
+        }
+        data.postAllInterests(newInterestObject)
+        .then(response => {
+        interestList.showInterests();
+        })
     }
+
 }
+
+
+export default newInterest
