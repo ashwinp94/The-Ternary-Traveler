@@ -22,7 +22,7 @@ const newInterest = {
         let newInterestNameField = document.createElement("fieldset")
 
         let newInterestNameLabel = document.createElement("label")
-        newInterestNameLabel.textContent = "Name"
+        newInterestNameLabel.textContent = "Name  "
         newInterestNameLabel.setAttribute("for", "interest_name")
         let newInterestNameInput = document.createElement("input")
         newInterestNameInput.setAttribute("id", "interest_name")
@@ -34,19 +34,19 @@ const newInterest = {
         let  newInterestDField = document.createElement("fieldset")
 
         let newInterestDLabel = document.createElement("label")
-        newInterestDLabel.textContent = "Description"
+        newInterestDLabel.textContent = "Description  "
         newInterestDLabel.setAttribute("for", "interest_D")
         let newInterestDInput = document.createElement("input")
         newInterestDInput.setAttribute("id", "interest_D")
         newInterestDInput.setAttribute("name", "interest_D")
 
-        newInterestDField.appendChild(newInterestDInput)
         newInterestDField.appendChild(newInterestDLabel)
+        newInterestDField.appendChild(newInterestDInput)
 
         let newInterestCField = document.createElement("fieldset")
 
         let newInterestCLabel = document.createElement("label")
-        newInterestCLabel.textContent = "Cost"
+        newInterestCLabel.textContent = "Cost  "
         newInterestCLabel.setAttribute("for", "interest_C")
         let newInterestCinput = document.createElement("input")
         newInterestCinput.setAttribute("id", "interest_C")
@@ -58,7 +58,7 @@ const newInterest = {
         let newInterestRField = document.createElement("fieldset")
 
         let newInterestRLabel = document.createElement("label")
-        newInterestRLabel.textContent = "Leave a Review"
+        newInterestRLabel.textContent = "Leave a Review  "
         newInterestRLabel.setAttribute("for", "interest_R")
         let newInterestRInput = document.createElement("input")
         newInterestRInput.setAttribute("id", "interest_R")
@@ -66,6 +66,8 @@ const newInterest = {
 
         newInterestRField.appendChild(newInterestRLabel)
         newInterestRField.appendChild(newInterestRInput)
+
+        let interestCountryField = document.createElement("fieldset")
 
         let interestCountryLabel = document.createElement("label")
         interestCountryLabel.textContent = "Pick a City  "
@@ -85,6 +87,8 @@ const newInterest = {
                 interestCountryLabel.appendChild(interestCountry)
             });
         })
+        interestCountryField.appendChild(interestCountryLabel)
+
 
         let addButton = document.createElement("button")
         addButton.textContent = "Add New Interest"
@@ -96,7 +100,7 @@ const newInterest = {
         interestFormFragment.appendChild(newInterestNameField)
         interestFormFragment.appendChild(newInterestDField)
         interestFormFragment.appendChild(newInterestCField)
-        interestFormFragment.appendChild(interestCountryLabel)
+        interestFormFragment.appendChild(interestCountryField)
         interestFormFragment.appendChild(newInterestRField)
         interestFormFragment.appendChild(addButton)
 

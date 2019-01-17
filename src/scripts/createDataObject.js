@@ -11,7 +11,7 @@ const interests = {
 
         let nameField = document.createElement("Fieldset")
 
-        let interestNameLabel = document.createElement("h2")
+        let interestNameLabel = document.createElement("h3")
         interestNameLabel.textContent = "Name"
         let interestName = document.createElement("section")
         interestName.textContent = interestObject.name;
@@ -22,7 +22,7 @@ const interests = {
 
         let descriptionField = document.createElement("Fieldset")
 
-        let interestDescriptionLabel = document.createElement("h2")
+        let interestDescriptionLabel = document.createElement("h3")
         interestDescriptionLabel.textContent = "Description"
         let interestDescription = document.createElement("section")
         interestDescription.textContent = interestObject.description;
@@ -33,7 +33,7 @@ const interests = {
 
         let costField = document.createElement("fieldset")
 
-        let interestCostLabel = document.createElement("h2")
+        let interestCostLabel = document.createElement("h3")
         interestCostLabel.textContent = "Cost"
         let interestCost = document.createElement("section")
         interestCost.textContent = interestObject.cost;
@@ -44,7 +44,7 @@ const interests = {
 
         let reviewField = document.createElement("fieldset")
 
-        let interestReviewLabel = document.createElement("h2")
+        let interestReviewLabel = document.createElement("h3")
         interestReviewLabel.textContent = "Review"
         let interestReview = document.createElement("section")
         interestReview.textContent = interestObject.review;
@@ -56,7 +56,7 @@ const interests = {
         let countryName = document.createElement("fieldset")
 
         //Yes I know I missnamed all these country variables
-        let interestCountryLabel = document.createElement("h2")
+        let interestCountryLabel = document.createElement("h3")
         interestCountryLabel.textContent = "City"
         let interestCountryName = document.createElement("section")
         interestCountryName.textContent = interestObject.place.name
@@ -85,9 +85,7 @@ const interests = {
             .then(response =>{
                 interestList.showInterests();
             })
-        } else {
-            console.log("ok")
-            }
+        }
         })
 
         interestArea.appendChild(nameField)
