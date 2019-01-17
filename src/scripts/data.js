@@ -12,10 +12,12 @@ const data = {
           body: JSON.stringify(newInterestToSave)
             })
     },
+
     getAllPlaces(){
         return fetch ("http://localhost:8088/places")
         .then(response => response.json())
     },
+
     deleteInterest(interestId){
         return fetch(`http://localhost:8088/interests/${interestId}`, {
       method: "DELETE",

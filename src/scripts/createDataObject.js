@@ -24,14 +24,20 @@ const interests = {
         let interestCountryName = document.createElement("section")
         interestCountryName.textContent = "City:  " + interestObject.place.name
 
+
+
         let deleteButton = document.createElement("button")
         deleteButton.textContent = "Delete"
         deleteButton.addEventListener("click", () => {
+            if(confirm("Are you Sure?")){
             let interestId = event.target.parentNode.id.split("--")[1]
             data.deleteInterest(interestId)
             .then(response =>{
                 interestList.showInterests();
             })
+        } else {
+            console.log("ok")
+            }
         })
 
         interestArea.appendChild(interestName)
