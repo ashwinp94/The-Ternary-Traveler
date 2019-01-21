@@ -73,7 +73,7 @@ const newInterest = {
         interestCountryLabel.textContent = "Pick a City  "
 
         let interestCountry = document.createElement("select")
-        interestCountry.setAttribute("id", "interestCo" )
+        interestCountry.setAttribute("id", "interestCo")
 
         data.getAllPlaces()
         .then(parsedPlaces => {

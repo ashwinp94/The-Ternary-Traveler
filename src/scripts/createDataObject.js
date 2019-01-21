@@ -15,7 +15,7 @@ const interests = {
         interestNameLabel.textContent = "Name"
         let interestName = document.createElement("section")
         interestName.textContent = interestObject.name;
-        interestName.setAttribute("id", `interestName--${interestObject.id}`)
+
 
         nameField.appendChild(interestNameLabel)
         nameField.appendChild(interestName)
@@ -26,7 +26,7 @@ const interests = {
         interestDescriptionLabel.textContent = "Description"
         let interestDescription = document.createElement("section")
         interestDescription.textContent = interestObject.description;
-        interestDescription.setAttribute("id", `interestDescription--${interestObject.id}`)
+
 
         descriptionField.appendChild(interestDescriptionLabel)
         descriptionField.appendChild(interestDescription)
@@ -37,7 +37,7 @@ const interests = {
         interestCostLabel.textContent = "Cost"
         let interestCost = document.createElement("section")
         interestCost.textContent = interestObject.cost;
-        interestCost.setAttribute("id", `interestCost--${interestObject.id}`)
+
 
         costField.appendChild(interestCostLabel)
         costField.appendChild(interestCost)
@@ -48,7 +48,7 @@ const interests = {
         interestReviewLabel.textContent = "Review"
         let interestReview = document.createElement("section")
         interestReview.textContent = interestObject.review;
-        interestReview.setAttribute("id", `interestReview--${interestObject.id}`)
+
 
         reviewField.appendChild(interestReviewLabel)
         reviewField.appendChild(interestReview)
@@ -60,14 +60,14 @@ const interests = {
         interestCountryLabel.textContent = "City"
         let interestCountryName = document.createElement("section")
         interestCountryName.textContent = interestObject.place.name
-        interestCountryName.setAttribute("id", `${interestObject.placeId}`)
+
 
         countryName.appendChild(interestCountryLabel)
         countryName.appendChild(interestCountryName)
 
         let editButton = document.createElement("button")
         editButton.textContent= "Edit"
-        editButton.addEventListener("click", ()=> {
+        editButton.addEventListener("click", () => {
             let articleId = event.target.parentNode.id
             let interestId = articleId.split("--")[1]
             data.getInterests(interestId)

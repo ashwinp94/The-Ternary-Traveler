@@ -3,17 +3,6 @@ import interestList from "./listInterests";
 
 const interestEditForm = {
     createAndAppendEdit(articleId, iObjToEdit){
-    //Here I create variables to put in the edit object. These variables target the textcontent of what is already in the previous fields
-    //there is probably a better way to do this using a fetch call but whatever
-    let interestNameValue = document.querySelector(`#interestName--${iObjToEdit.id}`)
-    interestNameValue.value = interestNameValue.textContent
-    let interestDescriptionValue = document.querySelector(`#interestDescription--${iObjToEdit.id}`)
-    interestDescriptionValue.value = interestDescriptionValue.textContent
-    //this is the country variable in the createDataObject file I named it correctly here
-    let interestCityName = document.getElementById(`${iObjToEdit.placeId}`)
-    interestCityName.value = interestCityName.id
-
-    //creating the edit field
 
     let interestCostField = document.createElement("p")
 
@@ -35,16 +24,16 @@ const interestEditForm = {
     interestReviewField.appendChild(interestReviewLabel);
     interestReviewField.appendChild(interestReviewInput);
 
-    let interest
+
 
     let updateButton = document.createElement("button")
     updateButton.textContent = "Update"
 
-    updateButton.addEventListener("click", ()=>{
+    updateButton.addEventListener("click", ()=> {
         let editedInterest = {
-            placeId: interestCityName.value,
-            name: interestNameValue.value,
-            description: interestDescriptionValue.value,
+            placeId: iObjToEdit.placeId,
+            name: iObjToEdit.name,
+            description: iObjToEdit.description,
             cost: interestCostInput.value,
             review: interestReviewInput.value,
         }
